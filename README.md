@@ -2,6 +2,17 @@
 
 > **Amazon Hack On 2026** · *Every product deserves a meaningful second life.*
 
+## 🚀 Live Demo
+
+| | Link |
+|--|------|
+| **Frontend** | [secondlife-cadj94oow-shefali-bishnois-projects.vercel.app](https://secondlife-cadj94oow-shefali-bishnois-projects.vercel.app) |
+| **Backend API** | [secondlife-backend-dzl6.onrender.com](https://secondlife-backend-dzl6.onrender.com) |
+| **Swagger Docs** | [secondlife-backend-dzl6.onrender.com/docs](https://secondlife-backend-dzl6.onrender.com/docs) |
+
+
+---
+
 SecondLife Commerce is an intelligent returns ecosystem that transforms warehouse returns and unused products into a sustainable resale pipeline — using computer vision, smart routing, and tamper-proof condition certificates.
 
 ---
@@ -81,7 +92,7 @@ SecondLife/
 
 ### 1. Train the Model *(optional — skip for demo)*
 
-Run on Google Colab with the [Kaputt dataset](https://kaputt-dataset.com/):
+Run on Google Colab with the [Kaputt dataset](https://github.com/antonsteenvoorden/kaputt):
 
 ```bash
 !pip install torch torchvision pandas pyarrow onnx onnxruntime tqdm
@@ -254,11 +265,21 @@ Health Cards are displayed in the UI and can be **exported as PDF** (via jsPDF, 
 
 ---
 
+## Deployment
+
+| Layer | Platform | URL |
+|-------|----------|-----|
+| Frontend | Vercel | [secondlife-cadj94oow-shefali-bishnois-projects.vercel.app](https://secondlife-cadj94oow-shefali-bishnois-projects.vercel.app) |
+| Backend | Render | [secondlife-backend-dzl6.onrender.com](https://secondlife-backend-dzl6.onrender.com) |
+
+**How the connection works:** Vercel rewrites all `/api/*` requests to the Render backend via `vercel.json` — no CORS issues in production.
+
 ## Environment Notes
 
-- The backend serves CORS for `localhost:5173` and `localhost:5174` out of the box.
+- Backend accepts requests from all origins (`allow_origins=["*"]`) — safe for hackathon use.
 - SQLite database (`trustpass.db`) is created automatically on first startup.
 - The jsPDF library is loaded from cdnjs in `index.html` for PDF Health Card export.
+- For local development, the Vite dev server proxies `/api/*` to `http://localhost:8000`.
 
 ---
 
